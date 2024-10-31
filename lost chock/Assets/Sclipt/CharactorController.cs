@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharactorController : MonoBehaviour
 {
+    [SerializeField] float rotateSpeed = 0.0f;//‰ñ“]‚·‚é‘¬“x
     Rigidbody rb;
     float jumpForce = 300.0f;
     //float walkSpeed = 30.0f;
@@ -23,24 +24,30 @@ public class CharactorController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && isJump)
         {
-            isJump = false;
+            //ã•ûŒü‚É—Í‚ğ‰Á‚¦‚é(ƒWƒƒƒ“ƒv‚·‚é)
             this.rb.AddForce(Vector3.up * this.jumpForce);
+            isJump = false;
         }
 
-        var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        var input = new Vector3(0f, 0f, Input.GetAxis("Vertical"));
 
-        var horizontalRotation = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up);
+        //var horizontalRotation = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up);
 
-        var velocity = horizontalRotation * input;
+        //var velocity = horizontalRotation * input;
+        Vector3 velocity = input;
 
         rb.AddForce(velocity * speed);
         
         if (!isJump)//‹ó’†”»’è
         {
-            velocity = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        }
+            //‰¡•ûŒü‚Ì“ü—Í‚ğæ‚é(‚P`|‚P)
+            float direction = Input.GetAxis("Horizontal");
+            //rotate‚Å‰ñ“]B‰ñ“]—Ê‚Í-rotateSpeed * direction‚Ì’l
+            transform.Rotate(0.0f,0.0f,-rotateSpeed * direction);
+            //rb.AddForce(velocity * speed);
 
-        
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
 
         //if(velocity.sqrMagnitude > 0.01f)
         //{
@@ -61,6 +68,7 @@ public class CharactorController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("hit");
+        //Tag‚Ìfloar‚É“–‚½‚Á‚½Ä“xƒWƒƒƒ“ƒv‚Å‚«‚é‚æ‚¤‚É‚·‚é
         if (collision.gameObject.CompareTag("floar"))
         {
             Debug.Log("floarHit");
