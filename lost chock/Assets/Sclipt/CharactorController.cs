@@ -5,11 +5,11 @@ using UnityEngine;
 public class CharactorController : MonoBehaviour
 {
     Rigidbody rb;
-    float jumpForce = 100.0f;
+    float jumpForce = 300.0f;
     //float walkSpeed = 30.0f;
     [SerializeField] float speed = 10f;
     float maxWalkSpeed = 2.0f;
-    bool isjump = false;
+    bool isJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +21,10 @@ public class CharactorController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && isJump)
         {
-            isjump = true;
+            isJump = false;
             this.rb.AddForce(Vector3.up * this.jumpForce);
-        }
-
-        if (isjump)
-        {
-            jumpForce = 0f;
-            isjump = false;
         }
 
         var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
@@ -40,6 +34,13 @@ public class CharactorController : MonoBehaviour
         var velocity = horizontalRotation * input;
 
         rb.AddForce(velocity * speed);
+        
+        if (!isJump)//‹ó’†”»’è
+        {
+            velocity = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        }
+
+        
 
         //if(velocity.sqrMagnitude > 0.01f)
         //{
@@ -55,5 +56,16 @@ public class CharactorController : MonoBehaviour
         //bool‚ÅƒWƒƒƒ“ƒv1‰ñ‚¾‚¯‚É‚·‚é
         //‹ó’†”»’è
         //‹ó’†‚É¶‰E“ü—Í‚Å•ûŒü“]Š·
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("hit");
+        if (collision.gameObject.CompareTag("floar"))
+        {
+            Debug.Log("floarHit");
+            //jumpForce = 300.0f;
+            isJump = true;
+        }
     }
 }
