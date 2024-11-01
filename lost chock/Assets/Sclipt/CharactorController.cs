@@ -46,7 +46,7 @@ public class CharactorController : MonoBehaviour
             transform.Rotate(0.0f,0.0f,-rotateSpeed * direction);
             //rb.AddForce(velocity * speed);
 
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         //if(velocity.sqrMagnitude > 0.01f)
