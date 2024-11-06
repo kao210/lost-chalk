@@ -17,6 +17,6 @@ public class LifeController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        myHPText.text = hp.ToString();
+        //myHPText.text = hp.ToString();
     }
 }

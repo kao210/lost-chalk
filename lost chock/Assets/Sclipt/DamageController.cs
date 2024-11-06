@@ -22,6 +22,8 @@ public class DamageController : MonoBehaviour
     //落下してから地面に落ちるまでの距離
     private float fallDistanse;
 
+    [SerializeField] private float takeDamageDistance = 0f;
+
     void Start()
     {
         fallDistanse = 0f;
@@ -32,7 +34,7 @@ public class DamageController : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawLine(rayPosition.position, rayPosition.position + Vector3.down * rayRange, Color.blue);
+        Debug.DrawLine(rayPosition.position, rayPosition.position + Vector3.down * rayRange, Color.red);
 
         if (isFall)
         {
@@ -46,16 +48,18 @@ public class DamageController : MonoBehaviour
                 //落下距離を計算
                 fallDistanse = fallenPosition - transform.position.y;
 
-                //落下した距離分ダメージを与える
-                myHP.TakeDamage((int)(fallDistanse));
-
+                if (fallDistanse >= takeDamageDistance)
+                {
+                    //落下した距離分ダメージを与える
+                    myHP.TakeDamage((int)(fallDistanse - takeDamageDistance));
+                }
                 isFall = false;
             }
         }
         else
         {
             if (!Physics.Linecast(rayPosition.position,
-                rayPosition.position + Vector3.down * rayRange, LayerMask.GetMask("", "")))
+                rayPosition.position + Vector3.down * rayRange, LayerMask.GetMask("floar", "")))
             {
                 fallenPosition = transform.position.y;
                 fallDistanse = 0;
