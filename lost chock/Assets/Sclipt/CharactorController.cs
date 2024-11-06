@@ -11,6 +11,7 @@ public class CharactorController : MonoBehaviour
     [SerializeField] float speed = 10f;
     float maxWalkSpeed = 2.0f;
     bool isJump = true;
+    [SerializeField] Transform parent;
 
     // Start is called before the first frame update
     void Start()
@@ -34,19 +35,18 @@ public class CharactorController : MonoBehaviour
         //var horizontalRotation = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up);
 
         //var velocity = horizontalRotation * input;
-        Vector3 velocity = input;
+        Vector3 velocity = input.z * parent.right ;
 
         rb.AddForce(velocity * speed);
-        
+
         if (!isJump)//‹ó’†”»’è
         {
             //‰¡•ûŒü‚Ì“ü—Í‚ğæ‚é(‚P`|‚P)
             float direction = Input.GetAxis("Horizontal");
             //rotate‚Å‰ñ“]B‰ñ“]—Ê‚Í-rotateSpeed * direction‚Ì’l
-            transform.Rotate(0.0f,0.0f,-rotateSpeed * direction);
+            parent.Rotate(0.0f, -rotateSpeed * direction, 0.0f, Space.World);
             //rb.AddForce(velocity * speed);
 
-            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         //if(velocity.sqrMagnitude > 0.01f)
@@ -63,6 +63,12 @@ public class CharactorController : MonoBehaviour
         //bool‚ÅƒWƒƒƒ“ƒv1‰ñ‚¾‚¯‚É‚·‚é
         //‹ó’†”»’è
         //‹ó’†‚É¶‰E“ü—Í‚Å•ûŒü“]Š·
+
+        
+        parent.position = this.transform.position;
+        this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.Euler(this.transform.rotation.eulerAngles.x, 90, 90);
+
     }
 
     private void OnCollisionEnter(Collision collision)
