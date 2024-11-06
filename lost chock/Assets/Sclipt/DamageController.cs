@@ -41,7 +41,7 @@ public class DamageController : MonoBehaviour
 
             //’n–Ê‚ÉƒŒƒC‚ª“Í‚¢‚Ä‚¢‚½‚ç
             if (Physics.Linecast(rayPosition.position,
-                rayPosition.position + Vector3.down * rayRange, LayerMask.GetMask("", "")))
+                rayPosition.position + Vector3.down * rayRange, LayerMask.GetMask("floar", "")))
             {
                 //—Ž‰º‹——£‚ðŒvŽZ
                 fallDistanse = fallenPosition - transform.position.y;

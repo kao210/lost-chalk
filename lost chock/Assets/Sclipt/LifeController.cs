@@ -5,12 +5,11 @@ using TMPro;
 
 public class LifeController : MonoBehaviour
 {
-    private int hp;
+    [SerializeField] private int hp;
     private TextMeshProUGUI myHPText;
 
     void Start()
     {
-        hp = 100;
         myHPText = GetComponentInChildren<TextMeshProUGUI>();
         //myHPText.text = hp.ToString();
     }
