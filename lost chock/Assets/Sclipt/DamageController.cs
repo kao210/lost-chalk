@@ -67,5 +67,7 @@ public class DamageController : MonoBehaviour
             }
         }
 
+        //if(LifeController.hp == 0)
+
     }
 }
