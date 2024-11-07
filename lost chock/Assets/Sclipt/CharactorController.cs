@@ -9,7 +9,7 @@ public class CharactorController : MonoBehaviour
     [SerializeField] float jumpForce = 300.0f;
     //float walkSpeed = 30.0f;
     [SerializeField] float speed = 10f;
-    float maxWalkSpeed = 2.0f;
+    //float maxWalkSpeed = 2.0f;
     bool isJump = true;
     [SerializeField] Transform parent;
     private RaycastHit floarHit;
