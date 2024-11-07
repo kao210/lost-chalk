@@ -6,13 +6,14 @@ public class CharactorController : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.0f;//回転する速度
     Rigidbody rb;
-    float jumpForce = 300.0f;
+    float jumpForce = 600.0f;
     //float walkSpeed = 30.0f;
     [SerializeField] float speed = 10f;
-    float maxWalkSpeed = 2.0f;
+    float maxWalkSpeed = 5.0f;
     bool isJump = true;
     [SerializeField] Transform parent;
     private RaycastHit floarHit;
+    private RaycastHit Object;
     [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
@@ -25,7 +26,18 @@ public class CharactorController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && isJump)
+        //オブジェクトの下にRaycastを設定し指定したlayerに当たったらジャンプできるようにする
+        if (Physics.Raycast(transform.position, Vector3.down, 0.7f, layerMask))
+        {
+            //Debug.Log("floarHit");
+            isJump = true;
+        }
+        else
+        {
+            isJump = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
             //上方向に力を加える(ジャンプする)
             this.rb.AddForce(Vector3.up * this.jumpForce);
@@ -77,11 +89,11 @@ public class CharactorController : MonoBehaviour
     {
         Debug.Log("hit");
         //Tagのfloarに当たった時再度ジャンプできるようにする
-        if (collision.gameObject.CompareTag("floar"))
-        {
-            Debug.Log("floarHit");
-            //jumpForce = 300.0f;
-            isJump = true;
-        }
+        //if (collision.gameObject.CompareTag("floar"))
+        //{
+        //    Debug.Log("floarHit");
+        //    //jumpForce = 300.0f;
+        //    isJump = true;
+        //}
     }
 }
