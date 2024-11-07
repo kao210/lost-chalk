@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharactorControllerAddForce : MonoBehaviour
 {
     Rigidbody rb;
-    float jumpForce = 100.0f;
+    [SerializeField] float jumpForce = 100.0f;
     //float walkSpeed = 30.0f;
     [SerializeField] float speed = 10f;
     float maxWalkSpeed = 2.0f;

@@ -14,7 +14,7 @@ public class DamageController : MonoBehaviour
     private float fallenPosition;
 
     //HP処理スクリプト
-    private LifeController myHP;
+    [SerializeField] private LifeController myHP;
 
     //落ちた地点を設定したかどうか
     private bool isFall;
@@ -29,7 +29,7 @@ public class DamageController : MonoBehaviour
         fallDistanse = 0f;
         fallenPosition = transform.position.y;
         isFall = false;
-        myHP = GetComponentInChildren<LifeController>();
+        //myHP = GetComponentInChildren<LifeController>();
     }
 
     void Update()

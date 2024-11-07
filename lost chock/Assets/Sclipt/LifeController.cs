@@ -11,12 +11,12 @@ public class LifeController : MonoBehaviour
     void Start()
     {
         myHPText = GetComponentInChildren<TextMeshProUGUI>();
-        //myHPText.text = hp.ToString();
+        myHPText.text = hp.ToString();
     }
 
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        //myHPText.text = hp.ToString();
+        myHPText.text = hp.ToString();
     }
 }
