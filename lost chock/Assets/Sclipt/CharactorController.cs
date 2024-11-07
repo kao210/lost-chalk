@@ -12,6 +12,8 @@ public class CharactorController : MonoBehaviour
     float maxWalkSpeed = 2.0f;
     bool isJump = true;
     [SerializeField] Transform parent;
+    private RaycastHit floarHit;
+    [SerializeField] private LayerMask layerMask;
 
     // Start is called before the first frame update
     void Start()
