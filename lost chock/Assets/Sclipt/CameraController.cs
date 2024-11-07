@@ -20,6 +20,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(follow == null)
+        {
+            return;
+        }
         transform.position = follow.position;
 
         yaw += Input.GetAxis("Mouse X") * mouseSensitivity;

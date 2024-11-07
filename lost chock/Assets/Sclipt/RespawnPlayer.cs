@@ -17,11 +17,11 @@ public class RespawnPlayer : MonoBehaviour
     {
         GameObject playerObj = GameObject.Find(PlayerPrefab.name);
 
-        if(playerObj == null)
-        {
-            GameObject newPlayerObj = Instantiate(PlayerPrefab);
-        }
+        //if(playerObj == null)
+        //{
+        //    GameObject newPlayerObj = Instantiate(PlayerPrefab);
+        //}
 
-        newPlayerObj.name = PlayerPrefab.name;
+        //newPlayerObj.name = PlayerPrefab.name;
     }
 }

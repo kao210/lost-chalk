@@ -2,11 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LifeController : MonoBehaviour
 {
+    [SerializeField] GameObject chalk;
     [SerializeField] private int hp;
     private TextMeshProUGUI myHPText;
+    public static LifeController Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -18,5 +35,16 @@ public class LifeController : MonoBehaviour
     {
         hp -= damage;
         myHPText.text = hp.ToString();
+        if (hp <= 0)
+        {
+
+            Destroy(chalk);
+            SceneManager.LoadScene("TestScene");
+        }
+    }
+
+    public void Update()
+    {
+        
     }
 }
