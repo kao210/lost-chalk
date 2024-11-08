@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DestroyPlayer : MonoBehaviour
 {
-    LifeController lifeController;
+    //LifeController lifeController;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (lifeController.)
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (lifeController. >= 0)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
