@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DestroyPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    LifeController lifeController;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (lifeController.)
+        {
+            Destroy(gameObject);
+        }
     }
 }
