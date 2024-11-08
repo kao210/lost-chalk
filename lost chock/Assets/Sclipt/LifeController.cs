@@ -11,19 +11,19 @@ public class LifeController : MonoBehaviour
     private TextMeshProUGUI myHPText;
     public static LifeController Instance;
 
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
+    //private void Awake()
+    //{
+    //    if(Instance == null)
+    //    {
+    //        Instance = this;
 
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     void Start()
     {
