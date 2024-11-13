@@ -874,6 +874,18 @@ MonoBehaviour:
   rayRange: 0.1
   myHP: {fileID: 687934021}
   takeDamageDistance: 0
+--- !u!114 &223833576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223833572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d47aff2ec7864ea44de1eca6ddc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &262423140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,7 +2424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chalk: {fileID: 868348464}
-  hp: 100
+  hp: 200
 --- !u!114 &687934022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5200,6 +5212,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1752827332663010996, guid: a4f116f36be747142841b5ce48765119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 223833575}
+    - targetCorrespondingSourceObject: {fileID: 1752827332663010996, guid: a4f116f36be747142841b5ce48765119, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 223833576}
   m_SourcePrefab: {fileID: 100100000, guid: a4f116f36be747142841b5ce48765119, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

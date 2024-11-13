@@ -29,6 +29,7 @@ public class LifeController : MonoBehaviour
     {
         myHPText = GetComponentInChildren<TextMeshProUGUI>();
         myHPText.text = hp.ToString();
+        Singleton.instance.AddHp();
     }
 
     public void TakeDamage(int damage)

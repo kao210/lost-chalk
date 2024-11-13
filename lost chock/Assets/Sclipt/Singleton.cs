@@ -16,12 +16,13 @@ public class Singleton : MonoBehaviour
 
     private int maxHp = 200;
 
-    //やられた瞬間読み込まれる
+    //やられた瞬間読み込まれて加算される
     public void AddHp()
     {
         maxHp += 10;
     }
 
+    //クリアした時Hpを初期値に戻す
     public void ResetHp()
     {
         maxHp = startMaxHp;
@@ -30,10 +31,11 @@ public class Singleton : MonoBehaviour
     
     private void Awake()
     {
-        //instanceの中身が空の時
+        //instanceの中身が空の時、このスクリプトが最初に実行されたとき
         if(instance == null)
         {
             instance = this;
+            //壊されないようにする
             DontDestroyOnLoad(gameObject);
         }
         else
