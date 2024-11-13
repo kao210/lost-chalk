@@ -40,11 +40,12 @@ public class LifeController : MonoBehaviour
 
             Destroy(chalk);
             SceneManager.LoadScene("TestScene");
+            //hp = hp + 100;
         }
     }
 
-    public void Update()
-    {
+    //public void Update()
+    //{
         
-    }
+    //}
 }
