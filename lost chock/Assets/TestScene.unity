@@ -529,6 +529,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68412096}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &75564778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75564780}
+  - component: {fileID: 75564779}
+  m_Layer: 0
+  m_Name: Singleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &75564779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75564778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2d47aff2ec7864ea44de1eca6ddc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &75564780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75564778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -131.12714, y: -192.00186, z: 627.2476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &94811619
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,18 +918,6 @@ MonoBehaviour:
   rayRange: 0.1
   myHP: {fileID: 687934021}
   takeDamageDistance: 0
---- !u!114 &223833576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223833572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2d47aff2ec7864ea44de1eca6ddc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &262423140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chalk: {fileID: 868348464}
-  hp: 200
+  hp: 20
 --- !u!114 &687934022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,9 +5244,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1752827332663010996, guid: a4f116f36be747142841b5ce48765119, type: 3}
       insertIndex: -1
       addedObject: {fileID: 223833575}
-    - targetCorrespondingSourceObject: {fileID: 1752827332663010996, guid: a4f116f36be747142841b5ce48765119, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 223833576}
   m_SourcePrefab: {fileID: 100100000, guid: a4f116f36be747142841b5ce48765119, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -5236,3 +5265,4 @@ SceneRoots:
   - {fileID: 1613556671}
   - {fileID: 1209522898}
   - {fileID: 511735234}
+  - {fileID: 75564780}

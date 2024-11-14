@@ -9,7 +9,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] GameObject chalk;
     [SerializeField] private int hp;
     private TextMeshProUGUI myHPText;
-    public static LifeController Instance;
+    //public static LifeController Instance;
 
     //private void Awake()
     //{
@@ -27,9 +27,10 @@ public class LifeController : MonoBehaviour
 
     void Start()
     {
+        hp = Singleton.instance.GetMaxHp();
         myHPText = GetComponentInChildren<TextMeshProUGUI>();
         myHPText.text = hp.ToString();
-        Singleton.instance.AddHp();
+        
     }
 
     public void TakeDamage(int damage)
@@ -38,7 +39,7 @@ public class LifeController : MonoBehaviour
         myHPText.text = hp.ToString();
         if (hp <= 0)
         {
-
+            Singleton.instance.AddHp();
             Destroy(chalk);
             SceneManager.LoadScene("TestScene");
             //hp = hp + 100;
