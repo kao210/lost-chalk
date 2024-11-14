@@ -6,12 +6,12 @@ using DG.Tweening;
 public class RotateTable : MonoBehaviour
 {
     [SerializeField] private float rotateTime = 0;
-    [SerializeField] private float rotateY = 0;
+    [SerializeField] private float rotateZ = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.DOLocalRotate(new Vector3(0, rotateY, 0), rotateTime, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
+        transform.DOLocalRotate(new Vector3(0, 360, rotateZ), rotateTime, RotateMode.FastBeyond360).SetEase(Ease.Linear).SetLoops(-1);
     }
 
     // Update is called once per frame

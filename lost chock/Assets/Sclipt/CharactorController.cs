@@ -22,6 +22,16 @@ public class CharactorController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isJump)
+        {
+            //上方向に力を加える(ジャンプする)
+            this.rb.AddForce(Vector3.up * this.jumpForce);
+            isJump = false;
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -31,13 +41,6 @@ public class CharactorController : MonoBehaviour
         }
         else
         {
-            isJump = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isJump)
-        {
-            //上方向に力を加える(ジャンプする)
-            this.rb.AddForce(Vector3.up * this.jumpForce);
             isJump = false;
         }
 
