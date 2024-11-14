@@ -6,6 +6,7 @@ TagManager:
   tags:
   - floar
   - player
+  - Goal
   layers:
   - Default
   - TransparentFX
