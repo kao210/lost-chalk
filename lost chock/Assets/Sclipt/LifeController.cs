@@ -9,7 +9,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] GameObject chalk;
     [SerializeField] private int hp;
     private TextMeshProUGUI myHPText;
-    //public static LifeController Instance;
+    public static LifeController Instance;
 
     //private void Awake()
     //{
