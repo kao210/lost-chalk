@@ -28,7 +28,7 @@ public class LifeController : MonoBehaviour
     void Start()
     {
         hp = Singleton.instance.GetMaxHp();
-        myHPText = GetComponentInChildren<TextMeshProUGUI>();
+        myHPText = GetComponent<TextMeshProUGUI>();
         myHPText.text = hp.ToString();
         
     }
@@ -41,7 +41,7 @@ public class LifeController : MonoBehaviour
         {
             Singleton.instance.AddHp();
             Destroy(chalk);
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("GameScene 1");
             //hp = hp + 100;
         }
     }
