@@ -87,6 +87,11 @@ public class CharactorController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "Goal")
+        {
+            Debug.Log("GOAL");
+        }
+        
         //Debug.Log("hit");
         ////Tag‚Ìfloar‚É“–‚½‚Á‚½Ä“xƒWƒƒƒ“ƒv‚Å‚«‚é‚æ‚¤‚É‚·‚é
         //if (collision.gameObject.CompareTag("floar"))
