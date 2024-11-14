@@ -14,6 +14,6 @@ public class RotateTable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.DGLocalRotate(new Vector3(0, 0, 360), 1f);
+        //transform.DGPunchPosition(new Vector3(0, 0, 360), 1f);
     }
 }
