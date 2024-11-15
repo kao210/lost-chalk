@@ -11,6 +11,9 @@ public class LifeController : MonoBehaviour
     private TextMeshProUGUI myHPText;
     public static LifeController Instance;
 
+    //public GameObject Cylinder;
+    //public GameObject chockhakai;
+
     //private void Awake()
     //{
     //    if(Instance == null)
@@ -30,7 +33,8 @@ public class LifeController : MonoBehaviour
         hp = Singleton.instance.GetMaxHp();
         myHPText = GetComponent<TextMeshProUGUI>();
         myHPText.text = hp.ToString();
-        
+        //Cylinder.SetActive(true);
+        //chockhakai.SetActive(false);
     }
 
     public void TakeDamage(int damage)
@@ -39,9 +43,11 @@ public class LifeController : MonoBehaviour
         myHPText.text = hp.ToString();
         if (hp <= 0)
         {
+            //Cylinder.SetActive(false);
+            //chockhakai.SetActive(true);
             Singleton.instance.AddHp();
             Destroy(chalk);
-            SceneManager.LoadScene("GameScene 1");
+            SceneManager.LoadScene("TestScene");
             //hp = hp + 100;
         }
     }
