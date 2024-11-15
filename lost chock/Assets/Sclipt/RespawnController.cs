@@ -14,7 +14,7 @@ public class RespawnController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("player"))//Tag‚Â‚¢‚Ä‚¢‚é‚©Šm”F
         {
             Singleton.instance.SetRespawnNumber(respawnNumber);
         }

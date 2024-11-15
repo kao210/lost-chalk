@@ -35,7 +35,11 @@ public class Singleton : MonoBehaviour
 
     public void SetRespawnNumber(int value)
     {
-        respawnNumber = value;//リスポーン更新
+        //valueがRespawnNumberより大きいときリスポーン更新
+        if (value > respawnNumber)
+        {
+            respawnNumber = value;//リスポーン更新
+        }
     }
     
     /// <summary>

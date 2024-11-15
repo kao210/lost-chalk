@@ -94,6 +94,7 @@ public class CharactorController : MonoBehaviour
         if(collision.gameObject.tag == "Goal")
         {
             Debug.Log("GOAL");
+            transform.position = respawnPointArray[0].position;
             SceneManager.LoadScene("ClearScene");
         }
         
