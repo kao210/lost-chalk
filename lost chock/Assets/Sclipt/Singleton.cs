@@ -6,8 +6,10 @@ public class Singleton : MonoBehaviour
 {
     public static Singleton instance;
 
-    private int startMaxHp = 350;
-    private int maxHp = 20;
+    private int startMaxHp = 200;
+    private int maxHp = 10;
+
+    private int respawnNumber = 0;
 
     //getMaxHpを呼び出すと返ってくる
     public int GetMaxHp()
@@ -30,15 +32,30 @@ public class Singleton : MonoBehaviour
     {
         maxHp = startMaxHp;
     }
+
+    public void SetRespawnNumber(int value)
+    {
+        //valueがRespawnNumberより大きいときリスポーン更新
+        if (value > respawnNumber)
+        {
+            respawnNumber = value;//リスポーン更新
+        }
+    }
     
+    /// <summary>
+    /// リスポーンナンバーを取得
+    /// </summary>
+    /// <returns></returns>
+    public int GetRespawmNumber()
+    {
+        return respawnNumber;
+    }
     
     private void Awake()
     {
         //instanceの中身が空の時、このスクリプトが最初に実行されたとき
         if(instance == null)
         {
-            ResetHp();
-
             instance = this;
             //壊されないようにする
             DontDestroyOnLoad(gameObject);

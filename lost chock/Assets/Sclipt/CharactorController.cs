@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharactorController : MonoBehaviour
 {
@@ -14,12 +15,15 @@ public class CharactorController : MonoBehaviour
     [SerializeField] Transform parent;
     private RaycastHit floarHit;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Transform[] respawnPointArray;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody>();
+        Respawn();//Ç‚ÇÁÇÍÇÈÇƒÉVÅ[ÉìÇ™ì«Ç›çûÇ‹ÇÍÇÈÇΩÇ—Ç…åƒÇ—èoÇ≥ÇÍÇÈ
     }
 
     private void Update()
@@ -90,6 +94,8 @@ public class CharactorController : MonoBehaviour
         if(collision.gameObject.tag == "Goal")
         {
             Debug.Log("GOAL");
+            transform.position = respawnPointArray[0].position;
+            SceneManager.LoadScene("ClearScene");
         }
         
         //Debug.Log("hit");
@@ -100,5 +106,11 @@ public class CharactorController : MonoBehaviour
         //    //jumpForce = 300.0f;
         //    isJump = true;
         //}
+    }
+
+
+    public void Respawn()
+    {
+        this.transform.position = respawnPointArray[Singleton.instance.GetRespawmNumber()].position;
     }
 }
