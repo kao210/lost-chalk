@@ -7,7 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     public void GameStartButtonDown()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene 1");
     }
 
     public void GameReStartButtonDown()

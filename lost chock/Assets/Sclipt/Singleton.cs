@@ -7,7 +7,7 @@ public class Singleton : MonoBehaviour
     public static Singleton instance;
 
     private int startMaxHp = 200;
-    private int maxHp = 10;
+    private int maxHp = 350;
 
     private int respawnNumber = 0;
 

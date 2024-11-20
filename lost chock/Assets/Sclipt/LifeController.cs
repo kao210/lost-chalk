@@ -47,7 +47,7 @@ public class LifeController : MonoBehaviour
             //chockhakai.SetActive(true);
             Singleton.instance.AddHp();
             Destroy(chalk);
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("GameScene 1");
             //hp = hp + 100;
         }
     }
