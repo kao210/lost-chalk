@@ -21,7 +21,7 @@ public class shortcut : MonoBehaviour
     {
         if(collision.gameObject.tag == "player")
         {
-            transform.DOLocalMove(new Vector3(-10f, 0, 0), 1f);
+            transform.DOLocalMove(new Vector3(-55f, 0, 0), 0.1f);
         }
     }
 }
