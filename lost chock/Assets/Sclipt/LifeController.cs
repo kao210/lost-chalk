@@ -30,7 +30,7 @@ public class LifeController : MonoBehaviour
 
     void Start()
     {
-        hp = Singleton.instance.GetMaxHp();
+        hp = Singleton.instance.GetMaxHp();//Singleton‚ÌmaxHp‚ª“Ç‚İ‚Ü‚ê‚é
         myHPText = GetComponent<TextMeshProUGUI>();
         myHPText.text = hp.ToString();
         //Cylinder.SetActive(true);
