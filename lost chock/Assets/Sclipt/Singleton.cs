@@ -31,6 +31,7 @@ public class Singleton : MonoBehaviour
     public void ResetHp()
     {
         maxHp = startMaxHp;
+        respawnNumber = 0;
     }
 
     public void SetRespawnNumber(int value)
