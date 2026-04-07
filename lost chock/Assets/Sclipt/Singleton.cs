@@ -18,11 +18,14 @@ public class Singleton : MonoBehaviour
         return maxHp;
     }
 
-   
 
-    //やられた瞬間読み込まれて加算される
+
+    /// <summary>
+    /// 呼び出されたときに最大HPを10加算するメソッド
+    /// </summary>
     public void AddHp()
     {
+        //最大HPを加算する
         maxHp += 10;
         Debug.Log("addhp" + maxHp);
     }
@@ -34,6 +37,9 @@ public class Singleton : MonoBehaviour
         respawnNumber = 0;
     }
 
+    /// <summary>
+    /// リスポーン地点を更新するメソッド
+    /// </summary>
     public void SetRespawnNumber(int value)
     {
         //valueがRespawnNumberより大きいときリスポーン更新
