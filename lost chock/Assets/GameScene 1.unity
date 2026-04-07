@@ -1187,7 +1187,7 @@ GameObject:
   - component: {fileID: 191837321}
   - component: {fileID: 191837322}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Player
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4432,7 +4432,7 @@ GameObject:
   - component: {fileID: 814824898}
   - component: {fileID: 814824897}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: PlayerObject
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4491,6 +4491,7 @@ MonoBehaviour:
   respawnPointArray:
   - {fileID: 1213278904}
   - {fileID: 1724937112}
+  layerDistance: 0.7
 --- !u!54 &814824899
 Rigidbody:
   m_ObjectHideFlags: 0
