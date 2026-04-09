@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// プレイヤーの移動、ジャンプ、回転を制御するクラス
+/// </summary>
 public class CharacterController : MonoBehaviour
 {
     [Header("プレイヤーの回転速度")]
     [SerializeField] float rotateSpeed = 0.0f;//回転する速度
-    Rigidbody rigidbody;
+    private Rigidbody rigidbody;
     [SerializeField] float jumpForce = 300.0f;
 
     [Header("プレイヤーの移動速度")]
@@ -30,6 +31,10 @@ public class CharacterController : MonoBehaviour
     [Header("レイヤーの長さ")]
     [SerializeField] private float layerDistance = 0.0f;
 
+    [SerializeField] private Transform cameraTransform = null;
+
+    float cameraAngleY = 0.0f;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -41,7 +46,6 @@ public class CharacterController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         //やられるてシーンが読み込まれるたびに呼び出される
-        //
         Respawn();
     }
 
@@ -51,7 +55,7 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isJump)
         {
             //上方向に力を加える(ジャンプする)
-            this.rigidbody.AddForce(Vector3.up * this.jumpForce);
+            rigidbody.AddForce(Vector3.up * jumpForce);
 
             //二段ジャンプを防止するために、isJumpをfalseにする
             isJump = false;
@@ -71,13 +75,28 @@ public class CharacterController : MonoBehaviour
         }
 
         //プレイヤーの前後移動の入力のみを取得する(１～－１)
-        var input = new Vector3(0f, 0f, Input.GetAxis("Vertical"));
+        //var input = new Vector3(0f, 0f, Input.GetAxis("Vertical"));
+        float inputZ = Input.GetAxis("Vertical");
 
-        //プレイヤーの前後移動の入力に応じて、プレイヤーを前後に移動させる情報を取得する
-        Vector3 velocity = input.z * parent.right ;
+        //カメラのY軸の角度を取得する
+        //inspectorに表示されているrotationの角度と同じ値を取得するために、localEulerAnglesを使用する
+        cameraAngleY = cameraTransform.localEulerAngles.y;
+
+        //0~180度のときはそのままの値を使用し、180~360度のときは360から引いた値を使用する
+        if (cameraAngleY > 180f) cameraAngleY -= 360f;
+
+        //カメラのY軸の角度が0～180度のときは正の方向、180～360度のときは負の方向に移動するようにする
+        float cameraDirection = (cameraAngleY >= -90 && cameraAngleY <= 90f) ? -1f : 1f;
+
+        //カメラの水平の正面方向を取得し正規化する
+        Vector3 cameraForward = Vector3.ProjectOnPlane(cameraTransform.forward, Vector3.up).normalized;
+
+        //Vector3 move = cameraForward * inputZ;
+        Vector3 move = parent.right * inputZ * cameraDirection;
 
         //プレイヤーの前後移動の入力に応じて、AddForceで力を加えてプレイヤーを前後に移動させる
-        rigidbody.AddForce(velocity * speed);
+        //rigidbody.AddForce(velocity * speed);
+        rigidbody.AddForce(move * speed);
 
         //空中判定
         if (!isJump)
@@ -86,7 +105,7 @@ public class CharacterController : MonoBehaviour
             float direction = Input.GetAxis("Horizontal");
 
             //rotateで回転。回転量は-rotateSpeed * directionの値
-            parent.Rotate(0.0f, -rotateSpeed * direction, 0.0f, Space.World);
+            parent.Rotate(0.0f, rotateSpeed * direction, 0.0f, Space.World);
         }
 
         // 移動しているオブジェクトの位置を親オブジェクトに合わせる
@@ -96,6 +115,7 @@ public class CharacterController : MonoBehaviour
         transform.localPosition = Vector3.zero;
 
         // プレイヤーの子と親オブジェクトの回転を同じにする
+        //このオブジェクトを水平に保つようにする
         transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, 90);
 
     }
@@ -112,7 +132,6 @@ public class CharacterController : MonoBehaviour
             // クリアシーンに遷移する
             SceneManager.LoadScene("ClearScene");
         }
-
     }
 
     /// <summary>
