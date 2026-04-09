@@ -8,6 +8,7 @@ TagManager:
   - player
   - Goal
   - ShortCut
+  - Wall
   layers:
   - Default
   - TransparentFX

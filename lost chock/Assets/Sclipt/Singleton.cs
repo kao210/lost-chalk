@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
+    // Singletonクラスのインスタンスを格納する変数
+    //staticなのでクラス名と変数名を書くことでどこからでもアクセスできる
     public static Singleton instance;
 
-    private int startMaxHp = 200;
+    //プレイヤーの初期HP
+    private int startMaxHp = 350;
+
+    //プレイヤーの最大HP
     private int maxHp = 350;
 
+    //リスポーン地点の番号
     private int respawnNumber = 0;
 
     //getMaxHpを呼び出すと返ってくる
@@ -17,8 +23,6 @@ public class Singleton : MonoBehaviour
         Debug.Log("MaxHP" + maxHp);
         return maxHp;
     }
-
-
 
     /// <summary>
     /// 呼び出されたときに最大HPを10加算するメソッド
