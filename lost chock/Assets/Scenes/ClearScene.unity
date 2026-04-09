@@ -6193,7 +6193,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1510870918}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: GameStartButtonDown
+        m_MethodName: GameReStartButtonDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
